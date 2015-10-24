@@ -4,7 +4,7 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainActivity"
-    android:background="#dbffdd">
+    android:background="#b50a690d">
 
     <TextView
         android:layout_width="wrap_content"
@@ -41,12 +41,12 @@
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:inputType="textEmailAddress"
+        android:inputType="textPersonName"
         android:ems="10"
-        android:id="@+id/emailText"
+        android:id="@+id/nameText"
         android:layout_below="@+id/loginText"
         android:layout_centerHorizontal="true"
-        android:hint="Email" />
+        android:hint="Name" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -54,7 +54,7 @@
         android:inputType="textPassword"
         android:ems="10"
         android:id="@+id/passwordText"
-        android:layout_below="@+id/emailText"
+        android:layout_below="@+id/nameText"
         android:layout_centerHorizontal="true"
         android:hint="Password" />
 
