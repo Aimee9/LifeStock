@@ -1,10 +1,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    tools:context="com.epicodus.lifestock.WelcomeActivity">
+    android:layout_height="match_parent"
+    tools:context="com.epicodus.lifestock.WelcomeActivity"
+    android:background="#b50a690d">
 
     <TextView
         android:layout_width="wrap_content"
@@ -16,7 +14,8 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:textColor="@android:color/black"
-        android:textSize="30sp" />
+        android:textSize="30sp"
+        android:layout_marginLeft="40dp" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -28,5 +27,72 @@
         android:textColor="@android:color/black"
         android:layout_alignTop="@+id/helloText"
         android:layout_centerHorizontal="true" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/sheepButton"
+        android:layout_marginTop="59dp"
+        android:src="@drawable/goat"
+        android:layout_below="@+id/helloText"
+        android:layout_alignLeft="@+id/helloText"
+        android:layout_alignStart="@+id/helloText"
+        android:layout_marginRight="20dp" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageButton"
+        android:layout_toRightOf="@+id/sheepButton"
+        android:layout_toEndOf="@+id/sheepButton"
+        android:src="@drawable/binoculars"
+        android:layout_alignBottom="@+id/sheepButton"
+        android:layout_alignTop="@+id/sheepButton" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageButton2"
+        android:src="@drawable/google_pointer"
+        android:layout_alignParentBottom="true"
+        android:layout_alignRight="@+id/userName"
+        android:layout_alignEnd="@+id/userName"
+        android:layout_marginBottom="52dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Previous Sitings"
+        android:id="@+id/previousText"
+        android:layout_below="@+id/sheepButton"
+        android:layout_alignLeft="@+id/sheepButton"
+        android:layout_alignStart="@+id/sheepButton"
+        android:textSize="20sp"
+        android:textColor="@android:color/black" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="New Siting"
+        android:id="@+id/newText"
+        android:layout_below="@+id/imageButton"
+        android:layout_toRightOf="@+id/sheepButton"
+        android:textColor="@android:color/black"
+        android:textSize="20sp"
+        android:layout_alignRight="@+id/imageButton"
+        android:layout_alignEnd="@+id/imageButton"
+        android:gravity="center" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Other People&apos;s Sitings"
+        android:id="@+id/otherText"
+        android:textColor="@android:color/black"
+        android:textSize="20sp"
+        android:layout_alignParentBottom="true"
+        android:layout_toRightOf="@+id/helloText"
+        android:layout_toEndOf="@+id/helloText"
+        android:layout_marginBottom="25dp" />
 
 </RelativeLayout>
