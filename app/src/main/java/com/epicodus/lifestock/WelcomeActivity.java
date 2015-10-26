@@ -1,12 +1,20 @@
 package com.epicodus.lifestock;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 public class WelcomeActivity extends AppCompatActivity {
+
+    private ImageButton mSheepButton;
+    private ImageButton mBinoButton;
+    private ImageButton mPointerButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,6 +25,33 @@ public class WelcomeActivity extends AppCompatActivity {
         TextView tv = (TextView)findViewById(R.id.userName);
         tv.setText(username);
 
+        mSheepButton = (ImageButton)findViewById(R.id.sheepButton);
+        mBinoButton = (ImageButton)findViewById(R.id.binoButton);
+        mPointerButton = (ImageButton)findViewById(R.id.pointerButton);
+
+        mSheepButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(WelcomeActivity.this, SitingsListActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        mBinoButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(WelcomeActivity.this, NewSitingActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        mPointerButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(WelcomeActivity.this, OtherPeopleActivity.class);
+                startActivity(intent);
+            }
+        });
 
     }
 

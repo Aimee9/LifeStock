@@ -20,6 +20,18 @@
             android:name=".WelcomeActivity"
             android:label="@string/title_activity_welcome" >
         </activity>
+        <activity
+            android:name=".SitingsListActivity"
+            android:label="@string/title_activity_sitings_list" >
+        </activity>
+        <activity
+            android:name=".NewSitingActivity"
+            android:label="@string/title_activity_new_siting" >
+        </activity>
+        <activity
+            android:name=".OtherPeopleActivity"
+            android:label="@string/title_activity_other_people" >
+        </activity>
     </application>
 
 </manifest>

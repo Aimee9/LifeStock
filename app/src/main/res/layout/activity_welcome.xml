@@ -42,7 +42,7 @@
     <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/imageButton"
+        android:id="@+id/binoButton"
         android:layout_toRightOf="@+id/sheepButton"
         android:layout_toEndOf="@+id/sheepButton"
         android:src="@drawable/binoculars"
@@ -52,41 +52,43 @@
     <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/imageButton2"
+        android:id="@+id/pointerButton"
         android:src="@drawable/google_pointer"
-        android:layout_alignParentBottom="true"
+        android:layout_above="@+id/otherText"
         android:layout_alignRight="@+id/userName"
-        android:layout_alignEnd="@+id/userName"
-        android:layout_marginBottom="52dp" />
+        android:layout_alignEnd="@+id/userName" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Previous Sitings"
+        android:text="Your List"
         android:id="@+id/previousText"
         android:layout_below="@+id/sheepButton"
         android:layout_alignLeft="@+id/sheepButton"
         android:layout_alignStart="@+id/sheepButton"
         android:textSize="20sp"
-        android:textColor="@android:color/black" />
+        android:textColor="@android:color/black"
+        android:layout_alignRight="@+id/sheepButton"
+        android:layout_alignEnd="@+id/sheepButton"
+        android:gravity="center" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="New Siting"
         android:id="@+id/newText"
-        android:layout_below="@+id/imageButton"
+        android:layout_below="@+id/binoButton"
         android:layout_toRightOf="@+id/sheepButton"
         android:textColor="@android:color/black"
         android:textSize="20sp"
-        android:layout_alignRight="@+id/imageButton"
-        android:layout_alignEnd="@+id/imageButton"
+        android:layout_alignRight="@+id/binoButton"
+        android:layout_alignEnd="@+id/binoButton"
         android:gravity="center" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Other People&apos;s Sitings"
+        android:text="Other Listed Animals"
         android:id="@+id/otherText"
         android:textColor="@android:color/black"
         android:textSize="20sp"
