@@ -39,24 +39,33 @@
         android:layout_centerHorizontal="true"
         android:src="@drawable/mountain_beaver" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="What a cute little rascal!"
-        android:id="@+id/notesText"
-        android:layout_below="@+id/animalImage"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="44dp"
-        android:textColor="@android:color/black"
-        android:textSize="15sp" />
-
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Next Listing"
         android:id="@+id/nextButton"
-        android:layout_below="@+id/notesText"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
+
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/scrollView"
+        android:layout_below="@+id/animalImage"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="32dp" />
+        android:layout_above="@+id/nextButton">
+
+    </ScrollView>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="What a cute little rascal!"
+        android:id="@+id/notesText"
+        android:textColor="@android:color/black"
+        android:textSize="15sp"
+        android:layout_alignTop="@+id/scrollView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp" />
 
 </RelativeLayout>

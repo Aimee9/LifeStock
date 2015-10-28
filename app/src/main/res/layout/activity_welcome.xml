@@ -55,8 +55,7 @@
         android:id="@+id/pointerButton"
         android:src="@drawable/google_pointer"
         android:layout_above="@+id/otherText"
-        android:layout_alignRight="@+id/userName"
-        android:layout_alignEnd="@+id/userName" />
+        android:layout_centerHorizontal="true" />
 
     <TextView
         android:layout_width="wrap_content"
