@@ -21,8 +21,8 @@ public class WelcomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_welcome);
         String username = getIntent().getStringExtra("Username");
 
-        TextView tv = (TextView)findViewById(R.id.userName);
-        tv.setText(username);
+        TextView inputName = (TextView)findViewById(R.id.userName);
+        inputName.setText(username);
 
         mSheepButton = (ImageButton)findViewById(R.id.sheepButton);
         mBinoButton = (ImageButton)findViewById(R.id.binoButton);

@@ -23,10 +23,10 @@ public class MainActivity extends AppCompatActivity {
         mEnterButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                EditText name = (EditText)findViewById(R.id.nameText);
-                String str = name.getText().toString();
+                EditText inputtedName = (EditText)findViewById(R.id.nameText);
+                String username = inputtedName.getText().toString();
                 Intent intent = new Intent(MainActivity.this, WelcomeActivity.class);
-                intent.putExtra("Username", str);
+                intent.putExtra("Username", username);
                 startActivity(intent);
             }
         });
