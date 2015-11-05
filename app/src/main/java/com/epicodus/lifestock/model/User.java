@@ -5,6 +5,8 @@ import com.activeandroid.annotation.Column;
 import com.activeandroid.annotation.Table;
 import com.activeandroid.query.Select;
 
+import java.util.List;
+
 /**
  * Created by oem on 11/2/15.
  */
@@ -25,6 +27,10 @@ public class User extends Model {
 
     public String getName() {
         return mName;
+    }
+
+    public List<Siting> sitings() {
+        return getMany(Siting.class, "User");
     }
 
     public static User find(String username) {
