@@ -7,11 +7,20 @@
     tools:context="com.epicodus.lifestock.ui.SitingsListActivity"
     android:background="#b50a690d">
 
-    <ScrollView
-        android:layout_width="match_parent"
+    <ListView
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/scrollView"
+        android:id="@+id/listView"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_alignParentBottom="true" />
+        android:layout_marginTop="46dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Your Sitings"
+        android:id="@+id/textView2"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
 </RelativeLayout>
