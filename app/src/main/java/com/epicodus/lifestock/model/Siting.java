@@ -35,10 +35,9 @@ public class Siting extends Model {
         super();
     }
 
-    public Siting(String species, String location, int image, String notes) {
+    public Siting(String species, String location, String notes) {
         mSpecies = species;
         mLocation = location;
-        mImage = image;
         mNotes = notes;
         mCreatedAt = new Date().getTime();
     }

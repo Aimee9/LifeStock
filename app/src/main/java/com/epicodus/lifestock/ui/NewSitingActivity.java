@@ -29,6 +29,8 @@ public class NewSitingActivity extends AppCompatActivity {
 
 
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,9 +42,13 @@ public class NewSitingActivity extends AppCompatActivity {
         mSubmitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Bundle bundle = new Bundle();
+                bundle.putString("species", mSpecies.getText().toString());
+                bundle.putString("location", mLocation.getText().toString());
+                bundle.putString("notes", mNotes.getText().toString());
                 Intent intent = new Intent(NewSitingActivity.this, SitingsListActivity.class);
+                intent.putExtras(bundle);
                 startActivity(intent);
-
             }
         });
     }
