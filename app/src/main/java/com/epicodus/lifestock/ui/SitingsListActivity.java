@@ -38,13 +38,14 @@ public class SitingsListActivity extends ListActivity {
         final String location = bundle.getString("location");
         final String notes = bundle.getString("notes");
 
+        mSitings = (ArrayList)Siting.all();
         Siting thisSiting = new Siting(species, location, notes);
         mSitings.add(thisSiting);
 
 
 
 
-        mSitings = (ArrayList)Siting.all();
+
         mAdapter = new ListAdapter(this, mSitings);
         setListAdapter(mAdapter);
 

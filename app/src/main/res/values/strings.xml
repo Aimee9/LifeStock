@@ -7,4 +7,5 @@
     <string name="title_activity_sitings_list">SitingsListActivity</string>
     <string name="title_activity_new_siting">NewSitingActivity</string>
     <string name="title_activity_other_people">OtherPeopleActivity</string>
+    <string name="title_activity_register">RegisterActivity</string>
 </resources>
