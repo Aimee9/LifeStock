@@ -14,6 +14,7 @@ public class WelcomeActivity extends AppCompatActivity {
     private ImageButton mSheepButton;
     private ImageButton mBinoButton;
     private ImageButton mPointerButton;
+    private TextView mUserName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

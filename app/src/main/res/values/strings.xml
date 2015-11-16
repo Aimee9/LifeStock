@@ -8,4 +8,8 @@
     <string name="title_activity_new_siting">NewSitingActivity</string>
     <string name="title_activity_other_people">OtherPeopleActivity</string>
     <string name="title_activity_register">RegisterActivity</string>
+    <string name="signup_error">Please make sure you input a name and password</string>
+    <string name="signup_error_title">Register Error</string>
+    <string name="login_error_message">Please make sure to enter your username and password</string>
+    <string name="login_error_title">Login Error</string>
 </resources>

@@ -2,8 +2,11 @@ package com.epicodus.lifestock.ui;
 
 import android.app.ListActivity;
 import android.content.Intent;
+import android.os.Message;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -11,6 +14,10 @@ import android.widget.TextView;
 import com.epicodus.lifestock.R;
 import com.epicodus.lifestock.adapters.ListAdapter;
 import com.epicodus.lifestock.model.Siting;
+import com.parse.FindCallback;
+import com.parse.ParseException;
+import com.parse.ParseObject;
+import com.parse.ParseQuery;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,9 +27,10 @@ import butterknife.ButterKnife;
 
 public class SitingsListActivity extends ListActivity {
 
-    @Bind(R.id.speciesText)TextView mSpeciesText;
-    @Bind(R.id.locationText)TextView mLocationText;
-    @Bind(R.id.notesText) TextView mNotes;
+    private TextView mSpecies;
+    private TextView mLocation;
+    private TextView mNotes;
+    private ParseObject newListing;
     private ArrayList<Siting> mSitings;
     private ListAdapter mAdapter;
 
@@ -30,17 +38,28 @@ public class SitingsListActivity extends ListActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sitings_list);
-        ButterKnife.bind(this);
 
-        Intent intent = this.getIntent();
-        Bundle bundle = intent.getExtras();
-        final String species = bundle.getString("species");
-        final String location = bundle.getString("location");
-        final String notes = bundle.getString("notes");
+        mSpecies = (TextView)findViewById(R.id.speciesText);
+        mLocation = (TextView)findViewById(R.id.locationText);
+        mNotes = (TextView)findViewById(R.id.notesText);
 
-        mSitings = (ArrayList)Siting.all();
-        Siting thisSiting = new Siting(species, location, notes);
-        mSitings.add(thisSiting);
+//        ParseQuery<ParseObject> query = ParseQuery.getQuery("NewMessage");
+//                query.findInBackground(new FindCallback<ParseObject>() {
+//                    @Override
+//                    public void done(List<ParseObject> objects, ParseException e) {
+//                        if (e==null) {
+//                                String species = newListing.getString("species");
+//
+//                                mSpecies.add(species);
+//                                mAdapter.notifyDataSetChanged();
+//                            }
+//
+//                        } else {
+//                            Log.d("parse", "failed!" + e);
+//                        }
+//                    }
+//                });
+
 
 
 

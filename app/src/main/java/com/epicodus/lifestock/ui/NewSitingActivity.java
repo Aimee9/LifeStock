@@ -14,6 +14,7 @@ import android.widget.TextView;
 import com.epicodus.lifestock.R;
 import com.epicodus.lifestock.adapters.ListAdapter;
 import com.epicodus.lifestock.model.Siting;
+import com.parse.ParseObject;
 
 import java.util.ArrayList;
 
@@ -42,13 +43,25 @@ public class NewSitingActivity extends AppCompatActivity {
         mSubmitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Bundle bundle = new Bundle();
-                bundle.putString("species", mSpecies.getText().toString());
-                bundle.putString("location", mLocation.getText().toString());
-                bundle.putString("notes", mNotes.getText().toString());
+
+                ParseObject newListing = new ParseObject("NewListing");
+                String species = mSpecies.getText().toString();
+                String location = mLocation.getText().toString();
+                String notes = mNotes.getText().toString();
+                newListing.put("species", species);
+                newListing.put("location", location);
+                newListing.put("notes", notes);
+                newListing.saveInBackground();
+
                 Intent intent = new Intent(NewSitingActivity.this, SitingsListActivity.class);
-                intent.putExtras(bundle);
                 startActivity(intent);
+//                Bundle bundle = new Bundle();
+//                bundle.putString("species", mSpecies.getText().toString());
+//                bundle.putString("location", mLocation.getText().toString());
+//                bundle.putString("notes", mNotes.getText().toString());
+//                Intent intent = new Intent(NewSitingActivity.this, SitingsListActivity.class);
+//                intent.putExtras(bundle);
+//                startActivity(intent);
             }
         });
     }
