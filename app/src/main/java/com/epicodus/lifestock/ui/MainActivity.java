@@ -52,6 +52,8 @@ public class MainActivity extends AppCompatActivity {
                         public void done(ParseUser user, ParseException e) {
                             if (e == null){
                                 Intent intent = new Intent(MainActivity.this, WelcomeActivity.class);
+                                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
                                 intent.putExtra("username", username);
                                 startActivity(intent);
                             } else {

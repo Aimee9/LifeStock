@@ -12,4 +12,5 @@
     <string name="signup_error_title">Register Error</string>
     <string name="login_error_message">Please make sure to enter your username and password</string>
     <string name="login_error_title">Login Error</string>
+    <string name="logout">Logout</string>
 </resources>

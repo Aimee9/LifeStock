@@ -3,11 +3,14 @@ package com.epicodus.lifestock.ui;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.epicodus.lifestock.R;
+import com.parse.ParseUser;
 
 public class WelcomeActivity extends AppCompatActivity {
 
@@ -55,5 +58,23 @@ public class WelcomeActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_welcome, menu);
+        return true;
+    }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int itemId = item.getItemId();
+
+        if (itemId == R.id.action_logout) {
+            ParseUser.logOut();
+            Intent intent = new Intent(WelcomeActivity.this, MainActivity.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(intent);
+        }
+        return super.onOptionsItemSelected(item);
+    }
 }
