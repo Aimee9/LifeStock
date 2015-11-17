@@ -38,6 +38,7 @@ public class NewSitingActivity extends AppCompatActivity {
 
     private static final String TAG = NewSitingActivity.class.getSimpleName();
     public static final int REQUEST_IMAGE_CAPTURE = 0;
+    public static final int PICK_PHOTO_REQUEST = 23;
 
 
     private DialogInterface.OnClickListener mDialogListener = new DialogInterface.OnClickListener() {
@@ -58,6 +59,11 @@ public class NewSitingActivity extends AppCompatActivity {
                                 startActivityForResult(capturePic, REQUEST_IMAGE_CAPTURE);
                             }
                         }
+                    break;
+                case 1:
+                    Intent choosePhoto = new Intent(Intent.ACTION_GET_CONTENT);
+                    choosePhoto.setType("image/*");
+                    startActivityForResult(choosePhoto, PICK_PHOTO_REQUEST);
             }
         }
     };
@@ -114,7 +120,7 @@ public class NewSitingActivity extends AppCompatActivity {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
+        if ((requestCode == REQUEST_IMAGE_CAPTURE || requestCode == PICK_PHOTO_REQUEST )&& resultCode == RESULT_OK ) {
             Bitmap myBitmap = BitmapFactory.decodeFile(mCurrentPhotoPath);
             ImageView myPhoto = (ImageView) findViewById(R.id.animalPhoto);
             myPhoto.setImageBitmap(myBitmap);
