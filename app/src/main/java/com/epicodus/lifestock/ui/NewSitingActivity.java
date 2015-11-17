@@ -4,6 +4,8 @@ import android.app.AlertDialog;
 import android.app.ListActivity;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Environment;
 import android.provider.MediaStore;
@@ -15,6 +17,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.epicodus.lifestock.R;
@@ -36,6 +39,7 @@ public class NewSitingActivity extends AppCompatActivity {
     private static final String TAG = NewSitingActivity.class.getSimpleName();
     public static final int REQUEST_IMAGE_CAPTURE = 0;
 
+
     private DialogInterface.OnClickListener mDialogListener = new DialogInterface.OnClickListener() {
         @Override
         public void onClick(DialogInterface dialog, int which) {
@@ -47,7 +51,7 @@ public class NewSitingActivity extends AppCompatActivity {
                             try {
                                 photoFile = createImageFile();
                             } catch (IOException e) {
-                                Log.d(TAG, "Could not create an image file.");
+                                Log.d(TAG, e.toString());
                             }
                             if (photoFile != null) {
                                 capturePic.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(photoFile));
@@ -61,16 +65,12 @@ public class NewSitingActivity extends AppCompatActivity {
 
 
 
-    @Bind(R.id.speciesLabel)
-    EditText mSpecies;
-    @Bind(R.id.locationLabel)
-    EditText mLocation;
-    @Bind(R.id.notesLabel)
-    EditText mNotes;
-    @Bind(R.id.submitButton)
-    Button mSubmitButton;
-    @Bind(R.id.imageButton)
-    Button mImageButton;
+    @Bind(R.id.speciesLabel) EditText mSpecies;
+    @Bind(R.id.locationLabel) EditText mLocation;
+    @Bind(R.id.notesLabel) EditText mNotes;
+    @Bind(R.id.submitButton) Button mSubmitButton;
+    @Bind(R.id.imageButton) Button mImageButton;
+    @Bind(R.id.animalPhoto)ImageView mAnimalPhoto;
 
 
     @Override
@@ -86,7 +86,6 @@ public class NewSitingActivity extends AppCompatActivity {
                 builder.setItems(R.array.photo_options, mDialogListener);
                 AlertDialog dialog = builder.create();
                 dialog.show();
-//                takePictureEvent();
             }
         });
 
@@ -110,17 +109,17 @@ public class NewSitingActivity extends AppCompatActivity {
             }
         });
     }
+
+    String mCurrentPhotoPath;
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
-            Intent mediaScanIntent = new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE);
-            mediaScanIntent.setData(mMedia)
-            } else if (resultCode != RESULT_CANCELED)
-    };
-
-
-
-    String mCurrentPhotoPath;
+            Bitmap myBitmap = BitmapFactory.decodeFile(mCurrentPhotoPath);
+            ImageView myPhoto = (ImageView) findViewById(R.id.animalPhoto);
+            myPhoto.setImageBitmap(myBitmap);
+        }
+    }
 
     private File createImageFile() throws IOException {
         String timestamp = new SimpleDateFormat("yyyyMMdd=HHmmss").format(new Date());
@@ -131,10 +130,8 @@ public class NewSitingActivity extends AppCompatActivity {
                 ".jpg",
                 storageDir
         );
-        mCurrentPhotoPath = "file://" + image.getAbsolutePath();
+        mCurrentPhotoPath = "//" + image.getAbsolutePath();
         return image;
     }
-
-
 }
 
