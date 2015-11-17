@@ -41,12 +41,11 @@
         android:layout_height="wrap_content"
         android:id="@+id/notesLabel"
         android:lines="5"
-        android:layout_below="@+id/locationLabel"
-        android:layout_marginTop="134dp"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
         android:hint="Notes"
-        android:gravity="top" />
+        android:gravity="top"
+        android:layout_below="@+id/locationLabel"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
     <Button
         android:layout_width="wrap_content"
@@ -55,4 +54,13 @@
         android:id="@+id/submitButton"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add Image"
+        android:id="@+id/imageButton"
+        android:layout_below="@+id/notesLabel"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 </RelativeLayout>
