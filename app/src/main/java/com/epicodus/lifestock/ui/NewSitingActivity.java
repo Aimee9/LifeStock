@@ -24,6 +24,7 @@ import com.epicodus.lifestock.R;
 import com.epicodus.lifestock.adapters.ListAdapter;
 import com.epicodus.lifestock.model.Siting;
 import com.parse.ParseObject;
+import com.parse.ParseUser;
 
 import java.io.File;
 import java.io.IOException;
@@ -100,6 +101,7 @@ public class NewSitingActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+
                 ParseObject newListing = new ParseObject("NewListing");
                 String species = mSpecies.getText().toString();
                 String location = mLocation.getText().toString();
@@ -139,5 +141,26 @@ public class NewSitingActivity extends AppCompatActivity {
         mCurrentPhotoPath = "//" + image.getAbsolutePath();
         return image;
     }
+
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_welcome, menu);
+        return true;
+    }
+
+//    @Override
+//    public boolean onOptionsItemSelected(MenuItem item) {
+//        int itemId = item.getItemId();
+//
+//        if (itemId == R.id.action_logout) {
+//            ParseUser.logOut();
+//            Intent intent = new Intent(NewSitingActivity.this, MainActivity.class);
+//            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+//            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+//            startActivity(intent);
+//        }
+//        return super.onOptionsItemSelected(item);
+//    }
 }
 

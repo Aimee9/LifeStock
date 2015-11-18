@@ -3,6 +3,26 @@
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="action_search">Search</string>
+    <string name="drawer_open">Open</string>
+    <string name="drawer_close">Close</string>
+
+    <string name="nav_item_welcome">Welcome</string>
+    <string name="nav_item_listings">Your Sightings</string>
+    <string name="nav_item_new_item">New Sighting</string>
+    <string name="nav_item_other">Other People\'s Sightings</string>
+    <string-array name="nav_drawer_labels">
+        <item>@string/nav_item_welcome</item>
+        <item>@string/nav_item_listings</item>
+        <item>@string/nav_item_new_item</item>
+        <item>@string/nav_item_other</item>
+    </string-array>
+    <string name="title_welcome">Welcome</string>
+    <string name="title_listings">Your Sightings</string>
+    <string name="title_new_item">New Sighting</string>
+    <string name="title_other">Other People\'s Sightings</string>
+
+
     <string name="title_activity_welcome">WelcomeActivity</string>
     <string name="title_activity_sitings_list">SitingsListActivity</string>
     <string name="title_activity_new_siting">NewSitingActivity</string>
@@ -17,4 +37,5 @@
         <item>Take picture</item>
         <item>Choose picture</item>
     </string-array>
+
 </resources>
