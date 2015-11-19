@@ -1,6 +1,8 @@
 package com.epicodus.lifestock.ui;
 
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -12,11 +14,14 @@ import android.widget.TextView;
 import com.epicodus.lifestock.R;
 import com.parse.ParseUser;
 
+import java.util.List;
+
 public class WelcomeActivity extends AppCompatActivity {
 
     private ImageButton mSheepButton;
     private ImageButton mBinoButton;
     private ImageButton mPointerButton;
+    private ImageButton mTernButton;
     private TextView mUserName;
 
     @Override
@@ -29,6 +34,7 @@ public class WelcomeActivity extends AppCompatActivity {
         mSheepButton = (ImageButton)findViewById(R.id.batButton);
         mBinoButton = (ImageButton)findViewById(R.id.ocelotButton);
         mPointerButton = (ImageButton)findViewById(R.id.sageButton);
+        mTernButton = (ImageButton)findViewById(R.id.ternButton);
 
         mSheepButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -54,6 +60,23 @@ public class WelcomeActivity extends AppCompatActivity {
             }
         });
 
+        mTernButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {Uri websiteLink = Uri.parse(getString(R.string.website));
+                Intent websiteIntent = new Intent(Intent.ACTION_VIEW, websiteLink);
+                if (isIntentSafe(websiteIntent)) {
+                    startActivity(websiteIntent);
+                }
+
+            }
+        });
+
+    }
+
+    private boolean isIntentSafe(Intent intent) {
+        PackageManager packageManager = getPackageManager();
+        List activities = packageManager.queryIntentActivities(intent, PackageManager.MATCH_DEFAULT_ONLY);
+        return activities.size() > 0;
     }
 
     @Override

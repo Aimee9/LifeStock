@@ -33,6 +33,7 @@
     <string name="login_error_message">Please make sure to enter your username and password</string>
     <string name="login_error_title">Login Error</string>
     <string name="logout">Logout</string>
+    <string name="website">http://www.fws.gov/endangered/species/us-species.html</string>
     <string-array name="photo_options">
         <item>Take picture</item>
         <item>Choose picture</item>

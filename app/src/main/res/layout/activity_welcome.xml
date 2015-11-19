@@ -36,7 +36,8 @@
         android:src="@drawable/sage_grouse"
         android:background="#00388e3c"
         android:layout_above="@+id/otherText"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignLeft="@+id/previousText"
+        android:layout_alignStart="@+id/previousText" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -67,17 +68,19 @@
         android:layout_alignEnd="@+id/ocelotButton" />
 
     <TextView
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Other Posts"
         android:id="@+id/otherText"
         android:textColor="#0c622d"
         android:textSize="20sp"
-        android:layout_marginBottom="111dp"
+        android:layout_marginBottom="105dp"
         android:gravity="center"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignLeft="@+id/sageButton"
+        android:layout_alignStart="@+id/sageButton"
+        android:layout_alignRight="@+id/sageButton"
+        android:layout_alignEnd="@+id/sageButton" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -89,5 +92,31 @@
         android:textSize="40sp"
         android:textColor="#8e4d11"
         android:layout_marginTop="10dp" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/ternButton"
+        android:src="@drawable/tern"
+        android:maxHeight="130dp"
+        android:maxWidth="130dp"
+        android:layout_above="@+id/otherText"
+        android:layout_alignTop="@+id/sageButton"
+        android:layout_alignLeft="@+id/newText"
+        android:layout_alignStart="@+id/newText" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Learn About Endangered Species"
+        android:id="@+id/textView5"
+        android:layout_below="@+id/ternButton"
+        android:layout_alignLeft="@+id/ternButton"
+        android:layout_alignStart="@+id/ternButton"
+        android:textSize="20sp"
+        android:layout_alignRight="@+id/ternButton"
+        android:layout_alignEnd="@+id/ternButton"
+        android:gravity="center"
+        android:textColor="#0c622d" />
 
 </RelativeLayout>
