@@ -29,9 +29,9 @@ public class User extends Model {
         return mName;
     }
 
-    public List<Siting> sitings() {
-        return getMany(Siting.class, "User");
-    }
+//    public List<Siting> sitings() {
+//        return getMany(Siting.class, "User");
+//    }
 
     public static User find(String username) {
         return new Select()

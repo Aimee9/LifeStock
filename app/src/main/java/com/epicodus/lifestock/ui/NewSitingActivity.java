@@ -25,6 +25,7 @@ import com.epicodus.lifestock.adapters.ListAdapter;
 import com.epicodus.lifestock.model.Siting;
 import com.parse.ParseObject;
 import com.parse.ParseUser;
+import com.parse.ParseQuery;
 
 import java.io.File;
 import java.io.IOException;

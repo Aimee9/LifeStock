@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -16,6 +17,7 @@ import com.epicodus.lifestock.R;
 import com.epicodus.lifestock.adapters.ListAdapter;
 import com.epicodus.lifestock.model.Siting;
 import com.parse.FindCallback;
+import com.parse.GetCallback;
 import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
@@ -32,9 +34,8 @@ public class SitingsListActivity extends ListActivity {
     private TextView mSpecies;
     private TextView mLocation;
     private TextView mNotes;
-    private ParseObject newListing;
-    private ArrayList<Siting> mSitings;
-    private ListAdapter mAdapter;
+    private static List<Siting> mSitings;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,27 +43,20 @@ public class SitingsListActivity extends ListActivity {
         setContentView(R.layout.activity_sitings_list);
 
         mSpecies = (TextView) findViewById(R.id.speciesText);
-        mLocation = (TextView) findViewById(R.id.locationText);
-        mNotes = (TextView) findViewById(R.id.notesText);
+//        mLocation = (TextView) findViewById(R.id.locationText);
+//        mNotes = (TextView) findViewById(R.id.notesText);
 
-        mAdapter = new ListAdapter(this, mSitings);
-        setListAdapter(mAdapter);
-
-        ParseQuery<ParseObject> query = ParseQuery.getQuery("NewMessage");
-        query.findInBackground(new FindCallback<ParseObject>() {
+        Siting.refreshSitingList(SitingsListActivity.this, new Runnable() {
             @Override
-            public void done(List<ParseObject> objects, ParseException e) {
-                if (e == null) {
-                    String species = newListing.getString("species");
-
-                    mSpecies.setText(species);
-                    mAdapter.notifyDataSetChanged();
-                } else {
-                    Log.d("parse", "failed!" + e);
-                }
+            public void run() {
+                    mSitings = Siting.all();
             }
         });
+
+
     }
+
+
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {

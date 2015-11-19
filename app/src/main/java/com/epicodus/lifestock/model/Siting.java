@@ -1,11 +1,22 @@
 package com.epicodus.lifestock.model;
 
+import android.app.Activity;
+import android.util.Log;
+import android.widget.ArrayAdapter;
+
 import com.activeandroid.Model;
 import com.activeandroid.annotation.Column;
 import com.activeandroid.annotation.Table;
 import com.activeandroid.query.Select;
+import com.epicodus.lifestock.R;
+import com.parse.FindCallback;
+import com.parse.ParseClassName;
+import com.parse.ParseException;
+import com.parse.ParseObject;
+import com.parse.ParseQuery;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.TimeZone;
@@ -13,27 +24,19 @@ import java.util.TimeZone;
 /**
  * Created by oem on 10/27/15.
  */
-@Table(name = "Sitings", id = "_id")
-public class Siting extends Model {
+@ParseClassName("Siting")
+public class Siting extends ParseObject {
 
-    @Column(name = "Species")
+
     private String mSpecies;
-
-    @Column(name = "Location")
     private String mLocation;
-
-    @Column(name = "Image")
     private int mImage;
-
-    @Column(name = "Notes")
     private String mNotes;
-
-    @Column(name = "CreatedAt")
     private long mCreatedAt;
+    private ParseObject newListing;
+    private static List<Siting> mSitings;
+    private ArrayAdapter<Siting> mAdapter;
 
-    public Siting() {
-        super();
-    }
 
     public Siting(String species, String location, String notes) {
         mSpecies = species;
@@ -41,6 +44,7 @@ public class Siting extends Model {
         mNotes = notes;
         mCreatedAt = new Date().getTime();
     }
+
 
     public String getSpecies() {
         return mSpecies;
@@ -74,13 +78,6 @@ public class Siting extends Model {
         this.mNotes = mNotes;
     }
 
-    public long getCreatedAt() {
-        return mCreatedAt;
-    }
-
-    public void setCreatedAt(long createdAt) {
-        mCreatedAt = createdAt;
-    }
 
     public String getFormattedTime() {
         SimpleDateFormat formatter = new SimpleDateFormat("EEEE, MMMM d 'at' h:mm");
@@ -89,9 +86,35 @@ public class Siting extends Model {
     }
 
     public static List<Siting> all() {
-        return new Select()
-                .from(Siting.class)
-                .execute();
+        return mSitings;
     }
 
+    @Override
+    public String toString() {
+        return this.getSpecies();
+    }
+
+
+
+    public static void refreshSitingList(final Activity context, final Runnable runnable) {
+        ParseQuery<Siting> query = ParseQuery.getQuery("NewListing");
+        query.findInBackground(new FindCallback<Siting>() {
+            @Override
+            public void done(List<Siting> newListings, ParseException e) {
+                if (e == null) {
+                    mSitings = newListings;
+                    context.runOnUiThread(runnable);
+
+
+//                    for (ParseObject newListing : newListings) {
+//                        String species = newListing.getString("species");
+//                        mSitings.add(species);
+//                        mAdapter.notifyDataSetChanged();
+
+                }else {
+                    Log.d("parse", "failed!" + e);
+                }
+            }
+        });
+    }
 }

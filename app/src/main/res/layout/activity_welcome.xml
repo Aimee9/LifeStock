@@ -103,7 +103,10 @@
         android:layout_above="@+id/otherText"
         android:layout_alignTop="@+id/sageButton"
         android:layout_alignLeft="@+id/newText"
-        android:layout_alignStart="@+id/newText" />
+        android:layout_alignStart="@+id/newText"
+        android:background="#00388e3c"
+        android:layout_alignRight="@+id/newText"
+        android:layout_alignEnd="@+id/newText" />
 
     <TextView
         android:layout_width="wrap_content"

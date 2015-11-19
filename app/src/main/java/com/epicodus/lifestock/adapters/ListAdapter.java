@@ -11,15 +11,16 @@ import com.epicodus.lifestock.R;
 import com.epicodus.lifestock.model.Siting;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by oem on 11/4/15.
  */
 public class ListAdapter extends BaseAdapter{
     private Context mContext;
-    private ArrayList<Siting>mSitings;
+    private List<Siting>mSitings;
 
-    public ListAdapter(Context context, ArrayList<Siting> sitings) {
+    public ListAdapter(Context context, List<Siting> sitings) {
         mSitings = sitings;
         mContext = context;
     }
@@ -44,11 +45,12 @@ public class ListAdapter extends BaseAdapter{
         ViewHolder holder;
 
         if (convertView == null) {
+
             convertView = LayoutInflater.from(mContext).inflate(R.layout.single_listing, null);
             holder = new ViewHolder();
             holder.species = (TextView) convertView.findViewById(R.id.speciesText);
-            holder.location = (TextView)convertView.findViewById(R.id.locationText);
-            holder.notes = (TextView)convertView.findViewById(R.id.notesText);
+//            holder.location = (TextView)convertView.findViewById(R.id.locationText);
+//            holder.notes = (TextView)convertView.findViewById(R.id.notesText);
 
             convertView.setTag(holder);
         } else {
@@ -56,6 +58,7 @@ public class ListAdapter extends BaseAdapter{
         }
 
         Siting siting = mSitings.get(position);
+
 
         holder.species.setText(siting.getSpecies());
         holder.location.setText(siting.getLocation());
@@ -69,5 +72,4 @@ public class ListAdapter extends BaseAdapter{
         TextView location;
         TextView notes;
     }
-
 }
