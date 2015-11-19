@@ -41,36 +41,27 @@ public class SitingsListActivity extends ListActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sitings_list);
 
-        mSpecies = (TextView)findViewById(R.id.speciesText);
-        mLocation = (TextView)findViewById(R.id.locationText);
-        mNotes = (TextView)findViewById(R.id.notesText);
-
-//        ParseQuery<ParseObject> query = ParseQuery.getQuery("NewMessage");
-//                query.findInBackground(new FindCallback<ParseObject>() {
-//                    @Override
-//                    public void done(List<ParseObject> objects, ParseException e) {
-//                        if (e==null) {
-//                                String species = newListing.getString("species");
-//
-//                                mSpecies.add(species);
-//                                mAdapter.notifyDataSetChanged();
-//                            }
-//
-//                        } else {
-//                            Log.d("parse", "failed!" + e);
-//                        }
-//                    }
-//                });
-
-
-
-
-
+        mSpecies = (TextView) findViewById(R.id.speciesText);
+        mLocation = (TextView) findViewById(R.id.locationText);
+        mNotes = (TextView) findViewById(R.id.notesText);
 
         mAdapter = new ListAdapter(this, mSitings);
         setListAdapter(mAdapter);
 
+        ParseQuery<ParseObject> query = ParseQuery.getQuery("NewMessage");
+        query.findInBackground(new FindCallback<ParseObject>() {
+            @Override
+            public void done(List<ParseObject> objects, ParseException e) {
+                if (e == null) {
+                    String species = newListing.getString("species");
 
+                    mSpecies.setText(species);
+                    mAdapter.notifyDataSetChanged();
+                } else {
+                    Log.d("parse", "failed!" + e);
+                }
+            }
+        });
     }
 
     @Override

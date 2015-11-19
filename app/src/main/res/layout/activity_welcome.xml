@@ -2,57 +2,39 @@
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.epicodus.lifestock.ui.WelcomeActivity"
-    android:background="#b50a690d">
+    android:background="@drawable/background_selector">
 
-    <TextView
+    <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Hello"
-        android:id="@+id/helloText"
-        android:layout_alignParentTop="true"
+        android:id="@+id/batButton"
+        android:src="@drawable/bat"
+        android:layout_marginTop="97dp"
+        android:layout_marginLeft="41dp"
+        android:layout_marginStart="41dp"
+        android:background="#00388e3c"
+        android:layout_below="@+id/textView4"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:textColor="@android:color/black"
-        android:textSize="30sp"
-        android:layout_marginLeft="40dp" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Large Text"
-        android:id="@+id/userName"
-        android:textSize="30sp"
-        android:textColor="@android:color/black"
-        android:layout_alignTop="@+id/helloText"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignParentStart="true" />
 
     <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/sheepButton"
-        android:src="@drawable/goat"
-        android:layout_below="@+id/helloText"
-        android:layout_alignLeft="@+id/helloText"
-        android:layout_alignStart="@+id/helloText"
-        android:layout_marginTop="20dp" />
+        android:id="@+id/ocelotButton"
+        android:layout_toRightOf="@+id/batButton"
+        android:layout_toEndOf="@+id/batButton"
+        android:src="@drawable/ocelot"
+        android:layout_alignBottom="@+id/batButton"
+        android:layout_alignTop="@+id/batButton"
+        android:background="#00388e3c"
+        android:layout_marginLeft="20dp" />
 
     <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/binoButton"
-        android:layout_toRightOf="@+id/sheepButton"
-        android:layout_toEndOf="@+id/sheepButton"
-        android:src="@drawable/binoculars"
-        android:layout_alignBottom="@+id/sheepButton"
-        android:layout_alignTop="@+id/sheepButton" />
-
-    <ImageButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/pointerButton"
-        android:src="@drawable/google_pointer"
+        android:id="@+id/sageButton"
+        android:src="@drawable/sage_grouse"
+        android:background="#00388e3c"
         android:layout_above="@+id/otherText"
         android:layout_centerHorizontal="true" />
 
@@ -61,38 +43,51 @@
         android:layout_height="wrap_content"
         android:text="Your List"
         android:id="@+id/previousText"
-        android:layout_below="@+id/sheepButton"
-        android:layout_alignLeft="@+id/sheepButton"
-        android:layout_alignStart="@+id/sheepButton"
+        android:layout_below="@+id/batButton"
+        android:layout_alignLeft="@+id/batButton"
+        android:layout_alignStart="@+id/batButton"
         android:textSize="20sp"
-        android:textColor="@android:color/black"
-        android:layout_alignRight="@+id/sheepButton"
-        android:layout_alignEnd="@+id/sheepButton"
+        android:textColor="#0c622d"
+        android:layout_alignRight="@+id/batButton"
+        android:layout_alignEnd="@+id/batButton"
         android:gravity="center" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="New Siting"
+        android:text="New Sighting"
         android:id="@+id/newText"
-        android:layout_below="@+id/binoButton"
-        android:layout_toRightOf="@+id/sheepButton"
-        android:textColor="@android:color/black"
+        android:textColor="#0c622d"
         android:textSize="20sp"
-        android:layout_alignRight="@+id/binoButton"
-        android:layout_alignEnd="@+id/binoButton"
-        android:gravity="center" />
+        android:gravity="center"
+        android:layout_alignTop="@+id/previousText"
+        android:layout_alignLeft="@+id/ocelotButton"
+        android:layout_alignStart="@+id/ocelotButton"
+        android:layout_alignRight="@+id/ocelotButton"
+        android:layout_alignEnd="@+id/ocelotButton" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Other Posts"
+        android:id="@+id/otherText"
+        android:textColor="#0c622d"
+        android:textSize="20sp"
+        android:layout_marginBottom="111dp"
+        android:gravity="center"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Other Listed Animals"
-        android:id="@+id/otherText"
-        android:textColor="@android:color/black"
-        android:textSize="20sp"
-        android:layout_alignParentBottom="true"
-        android:layout_toRightOf="@+id/helloText"
-        android:layout_toEndOf="@+id/helloText"
-        android:layout_marginBottom="25dp" />
+        android:text="Welcome!"
+        android:id="@+id/textView4"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:textSize="40sp"
+        android:textColor="#8e4d11"
+        android:layout_marginTop="10dp" />
 
 </RelativeLayout>

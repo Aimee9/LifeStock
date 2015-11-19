@@ -25,12 +25,10 @@ public class WelcomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_welcome);
         String username = getIntent().getStringExtra("Username");
 
-        TextView inputName = (TextView)findViewById(R.id.userName);
-        inputName.setText(username);
 
-        mSheepButton = (ImageButton)findViewById(R.id.sheepButton);
-        mBinoButton = (ImageButton)findViewById(R.id.binoButton);
-        mPointerButton = (ImageButton)findViewById(R.id.pointerButton);
+        mSheepButton = (ImageButton)findViewById(R.id.batButton);
+        mBinoButton = (ImageButton)findViewById(R.id.ocelotButton);
+        mPointerButton = (ImageButton)findViewById(R.id.sageButton);
 
         mSheepButton.setOnClickListener(new View.OnClickListener() {
             @Override
